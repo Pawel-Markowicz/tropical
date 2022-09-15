@@ -1,0 +1,17 @@
+@use 'utilities' as u;
+
+*, *::before, *::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: u.$regular;
+    font-size: 16rem;
+}
