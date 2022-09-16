@@ -1,17 +1,60 @@
 @use 'utilities' as u;
 
-*, *::before, *::after{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+@mixin burger{
+    position: absolute;
+    right: 0;
+    height: 3px;
+    content: '';
+    background-color: u.$pure-white;
+    transition: width .3s;
+  }
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
-html{
-    font-size: 62.5%;
-    scroll-behavior: smooth;
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
 }
 
-body{
-    font-family: u.$regular;
-    font-size: 16rem;
+body {
+	font-family: u.$regular;
+	font-size: 1.6rem;
+	
+}
+
+// nav
+
+.burger-btn {
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	padding: 1em;
+	background: none;
+	border: 1px solid transparent;
+	cursor: pointer;
+	z-index: 1000;
+
+	&:focus {
+		outline: none;
+		border: 1px solid rgba(255, 255, 255, 0.5);
+		border-radius: 8px;
+	}
+
+	&__box {
+		position: relative;
+		width: 40px;
+		height: 29px;
+	}
+
+	&__bars,
+	&__bars::after,
+	&__bars::before {
+		@include burger;
+	}
 }
