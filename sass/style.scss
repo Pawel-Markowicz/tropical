@@ -87,6 +87,51 @@ body {
 	}
 }
 
+.nav {
+	position: fixed;
+	top: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	width: 100%;
+	transform: translateX(100%);
+	transition: .9s cubic-bezier(.99,0,.01,.94);
+	background-image: u.$blue-gradient-solid;
+	z-index: 100;
+
+	&--active{
+		transform: translateX(0);
+	}
+
+	&__item {
+		position: relative;
+		display: block;
+		margin: 0.5em 0;
+		padding: 0.5em 2em;
+		font-size: 2.8rem;
+		color: u.$pure-white;
+		text-decoration: none;
+
+		&::before{
+			position: absolute;
+			top: 0;
+			left: 0;
+			content: '';
+			width: 3px;
+			height: 0;
+			transform: scaleY(0);
+			background-color: u.$pure-white;
+			transition: transform .3s;
+		}
+
+		&:hover::before{
+			transform: scaleY(1);
+			height: 100%;
+		}
+	}
+}
+
 //header
 
 .header {
@@ -158,13 +203,11 @@ body {
 		right: 50px;
 	}
 
-	.header{
+	.header {
 		background-image: u.$blue-gradient, url('../img/palm-3172367_1920.jpg');
-		&__heading{
+		&__heading {
 			margin-bottom: 1rem;
 			font-size: 10rem;
 		}
 	}
 }
-
-
