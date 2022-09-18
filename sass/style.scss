@@ -82,7 +82,7 @@ body {
 		&::before {
 			top: 27px;
 			width: 30%;
-			transition-delay: 0.1gits;
+			transition-delay: 0.1s;
 		}
 	}
 }
@@ -99,7 +99,7 @@ body {
 	height: 75vh;
 	text-align: center;
 	color: u.$pure-white;
-	@include heroImages('../img/palm-3172367_1920.jpg');
+	@include heroImages('../img/palm-3172367_640.jpg');
 
 	&__heading {
 		font-family: u.$logo, cursive;
@@ -123,8 +123,48 @@ body {
 		text-transform: uppercase;
 		cursor: pointer;
 
-		&::before{
+		&::before {
 			background-color: u.$light-white;
 		}
 	}
 }
+
+// media
+
+@media (min-width: 768px) {
+	.white-block {
+		height: 50px;
+		width: 45%;
+	}
+
+	.header {
+		&__heading {
+			font-size: 6.6rem;
+		}
+
+		&__text {
+			font-size: 2.2rem;
+		}
+
+		&__btn {
+			font-size: 1.6rem;
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.burger-btn {
+		top: 50px;
+		right: 50px;
+	}
+
+	.header{
+		background-image: u.$blue-gradient, url('../img/palm-3172367_1920.jpg');
+		&__heading{
+			margin-bottom: 1rem;
+			font-size: 10rem;
+		}
+	}
+}
+
+
