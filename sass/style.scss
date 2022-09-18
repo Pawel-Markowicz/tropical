@@ -1,13 +1,20 @@
 @use 'utilities' as u;
 
-@mixin burger{
-    position: absolute;
-    right: 0;
-    height: 3px;
-    content: '';
-    background-color: u.$pure-white;
-    transition: width .3s;
-  }
+@mixin burger {
+	position: absolute;
+	right: 0;
+	height: 3px;
+	content: '';
+	background-color: u.$pure-white;
+	transition: width 0.3s;
+}
+
+@mixin heroImages($bgImg) {
+	background-image: u.$blue-gradient, url($bgImg);
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+}
 
 *,
 *::before,
@@ -25,7 +32,6 @@ html {
 body {
 	font-family: u.$regular;
 	font-size: 1.6rem;
-	
 }
 
 // nav
@@ -46,9 +52,9 @@ body {
 		border-radius: 8px;
 	}
 
-	&:hover{
-		.burger-btn__bars::after, 
-		.burger-btn__bars::before{
+	&:hover {
+		.burger-btn__bars::after,
+		.burger-btn__bars::before {
 			width: 100%;
 		}
 	}
@@ -65,18 +71,60 @@ body {
 		@include burger;
 	}
 
-	&__bars{
+	&__bars {
 		width: 100%;
 
-		&::after{
+		&::after {
 			top: 13px;
 			width: 60%;
 		}
 
-		&::before{
+		&::before {
 			top: 27px;
 			width: 30%;
-			transition-delay: .1gits;
+			transition-delay: 0.1gits;
+		}
+	}
+}
+
+//header
+
+.header {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: 2em;
+	height: 75vh;
+	text-align: center;
+	color: u.$pure-white;
+	@include heroImages('../img/palm-3172367_1920.jpg');
+
+	&__heading {
+		font-family: u.$logo, cursive;
+		font-size: 5rem;
+		font-weight: 300;
+	}
+
+	&__text {
+		font-size: 1.4rem;
+	}
+
+	&__btn {
+		margin-top: 2em;
+		padding: 0.8em 1.6em;
+		font-size: 1.4rem;
+		background: u.$pure-white;
+		border: none;
+		border-radius: 8px;
+		color: u.$dark;
+		text-decoration: none;
+		text-transform: uppercase;
+		cursor: pointer;
+
+		&::before{
+			background-color: u.$light-white;
 		}
 	}
 }
