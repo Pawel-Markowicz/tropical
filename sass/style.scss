@@ -703,3 +703,12 @@ body {
 		}
 	}
 }
+
+
+@media (min-width: 1100px){
+	.islands{
+		&__card{
+			width: 30%;
+		}
+	}
+}
