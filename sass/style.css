@@ -66,6 +66,104 @@ body {
   font-size: 1.6rem;
 }
 
+@-webkit-keyframes navItemsAnimation {
+  from {
+    -webkit-transform: translateX(200%);
+            transform: translateX(200%);
+  }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes navItemsAnimation {
+  from {
+    -webkit-transform: translateX(200%);
+            transform: translateX(200%);
+  }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+.nav-items-animation {
+  -webkit-animation: navItemsAnimation 1s;
+          animation: navItemsAnimation 1s;
+}
+
+.wrapper {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.white-block {
+  position: absolute;
+  height: 40px;
+  width: 60%;
+  background-color: #fff;
+}
+.white-block-left {
+  bottom: 0;
+  left: -50px;
+  -webkit-transform: skew(45deg);
+          transform: skew(45deg);
+}
+.white-block-right {
+  top: 0;
+  right: -50px;
+  -webkit-transform: skew(45deg);
+          transform: skew(45deg);
+}
+
+.btn-special-animation {
+  position: relative;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+  overflow: hidden;
+  z-index: 0;
+}
+.btn-special-animation::before {
+  display: block;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: right;
+          transform-origin: right;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+  z-index: -1;
+}
+.btn-special-animation:hover::before {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  -webkit-transform-origin: left;
+          transform-origin: left;
+}
+
+.section-heading {
+  position: relative;
+  margin-bottom: 2em;
+  font-size: 3rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  text-align: center;
+  color: #1755e7;
+  letter-spacing: 2px;
+}
+
+.section-padding {
+  padding: 6em 2em;
+}
+
 .burger-btn {
   position: fixed;
   top: 20px;
@@ -371,102 +469,60 @@ body {
   background-color: #0fe29c;
 }
 
-@-webkit-keyframes navItemsAnimation {
-  from {
-    -webkit-transform: translateX(200%);
-            transform: translateX(200%);
-  }
-  to {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-}
-
-@keyframes navItemsAnimation {
-  from {
-    -webkit-transform: translateX(200%);
-            transform: translateX(200%);
-  }
-  to {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
-  }
-}
-.nav-items-animation {
-  -webkit-animation: navItemsAnimation 1s;
-          animation: navItemsAnimation 1s;
-}
-
-.wrapper {
-  margin: 0 auto;
-  width: 100%;
-  max-width: 1200px;
-}
-
-.white-block {
-  position: absolute;
-  height: 40px;
-  width: 60%;
-  background-color: #fff;
-}
-.white-block-left {
-  bottom: 0;
-  left: -50px;
-  -webkit-transform: skew(45deg);
-          transform: skew(45deg);
-}
-.white-block-right {
-  top: 0;
-  right: -50px;
-  -webkit-transform: skew(45deg);
-          transform: skew(45deg);
-}
-
-.btn-special-animation {
+.offers {
   position: relative;
-  -webkit-transition: background-color 0.3s;
-  transition: background-color 0.3s;
+  background-image: linear-gradient(45deg, rgba(20, 105, 241, 0.75), rgba(42, 10, 184, 0.75)), url("../img/maldives-3220702_640aaa.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   overflow: hidden;
-  z-index: 0;
 }
-.btn-special-animation::before {
-  display: block;
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
+.offers .section-heading {
+  color: #fff;
+}
+.offers__option {
+  margin: 1em 0;
+  -webkit-box-shadow: 5px 5px 10px rgba(46, 46, 46, 0.18);
+          box-shadow: 5px 5px 10px rgba(46, 46, 46, 0.18);
+  background-color: #fff;
+  overflow: hidden;
+}
+.offers__option-img {
   width: 100%;
-  height: 100%;
-  -webkit-transform: scaleX(0);
-          transform: scaleX(0);
-  -webkit-transform-origin: right;
-          transform-origin: right;
-  -webkit-transition: -webkit-transform 0.3s;
-  transition: -webkit-transform 0.3s;
-  transition: transform 0.3s;
-  transition: transform 0.3s, -webkit-transform 0.3s;
-  z-index: -1;
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
 }
-.btn-special-animation:hover::before {
-  -webkit-transform: scaleX(1);
-          transform: scaleX(1);
-  -webkit-transform-origin: left;
-          transform-origin: left;
+.offers__option-img:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
-
-.section-heading {
-  position: relative;
-  margin-bottom: 2em;
-  font-size: 3rem;
+.offers__option-info {
+  padding: 2em;
+}
+.offers__option-heading {
+  margin-bottom: 0.5em;
+  font-size: 2.4rem;
   font-weight: 300;
-  text-transform: uppercase;
-  text-align: center;
-  color: #1755e7;
-  letter-spacing: 2px;
 }
-
-.section-padding {
-  padding: 6em 2em;
+.offers__option-text {
+  margin-bottom: 0.5em;
+  font-size: 1.3rem;
+  color: #2e2e2e;
+}
+.offers__option-btn {
+  margin-top: 1em;
+  padding: 0.8em;
+  width: 100%;
+  color: #fff;
+  background-color: #1755e7;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.offers__option-btn::before {
+  background-color: #164dcc;
 }
 
 @media (min-width: 768px) {
