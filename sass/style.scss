@@ -549,6 +549,8 @@ body {
 	}
 }
 
+// heading 992
+
 @media (min-width: 992px) {
 	.section-heading {
 		font-size: 4.8rem;
@@ -627,6 +629,19 @@ body {
 
 		&__text {
 			font-size: 2.2rem;
+		}
+	}
+
+	.islands{
+		&__cards{
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+		}
+
+		&__card{
+			margin: 1em;
+			width: 45%;
 		}
 	}
 }
