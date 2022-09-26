@@ -10,6 +10,13 @@
 	transition: width 0.3s;
 }
 
+@mixin heroImages ($bgImg){
+	background-image: $blue-gradient, url($bgImg);
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+}
+
 // FONTS
 
 $logo: 'ms_madiregular';
@@ -228,7 +235,7 @@ body {
 	height: 75vh;
 	text-align: center;
 	color: $pure-white;
-	background-image: url('../img/bora-bora-g289277c19_640.jpg');
+	background-image: $blue-gradient, url('../img/bora-bora-g289277c19_640.jpg');
 	background-size: cover;
 	background-position: center;
 	background-attachment: fixed;
@@ -260,6 +267,57 @@ body {
 		}
 	}
 }
+
+
+
+// MAIN
+
+// dreams section
+
+.dreams{
+	&__box{
+		display: flex;
+		flex-direction: column;
+		margin: 2em 0;
+
+	}
+
+	&__img{
+		width: 100%;
+		margin-bottom: 1em;
+	}
+
+	&__title{
+		margin-bottom: 0.5em;
+	}
+
+	&__text{
+		font-size: 1.4rem;
+	}
+}
+
+// HERO IMG
+
+.hero-img{
+	position: relative;
+	padding: 10em 2em;
+	@include heroImages('../img/hd-wallpaper-3021072_640tahiti.jpg');
+	text-align: center;
+	color: $pure-white;
+	overflow: hidden;
+
+	&__title{
+		font-family: $logo;
+		margin-bottom: 0.5em;
+		font-size: 4.8rem;
+	}
+
+	&__text{
+		padding: 1em 0;
+	}
+
+}
+
 
 
 // animation
@@ -330,8 +388,6 @@ body {
     }
 }
 
-
-
 .section-heading{
     position: relative;
     margin-bottom: 2em;
@@ -349,37 +405,9 @@ body {
 }
 
 
-
-// MAIN
-
-// dreams section
-
-.dreams{
-	&__box{
-		display: flex;
-		flex-direction: column;
-		margin: 2em 0;
-	
-	}
-
-	&__box-img{
-		width: 100%;
-		margin-bottom: 1em;
-	}
-
-	&__title{
-		margin-bottom: 0.5em;
-	}
-
-	&__text{
-		font-size: 1.4rem;
-	}
-}
-
-
 // MEDIA
 
-// heading
+// heading 768
 
 @media(min-width: 768px) {
     .section-heading{
@@ -403,7 +431,43 @@ body {
     
 }
 
-// white block, header
+// 576
+
+@media(min-width: 576px){
+	.dreams{
+		&__box{
+			flex-direction: row;
+			justify-content: space-between;
+
+			&-text{
+				width: 55%;
+
+				&--right{
+					text-align: right;
+				}
+			}
+
+			&-img{
+				width: 40%;
+
+				&--right{
+					order: 1;
+				}
+			}
+			
+	}
+
+	&__img{
+		margin-bottom: 0;
+		max-height: 300px;
+	}
+
+}
+}
+
+
+// white block, header; 768
+
 @media (min-width: 768px) {
 	.white-block {
 		height: 50px;
@@ -429,9 +493,24 @@ body {
 			font-size: 1.8rem;
 		}
 	}
+
+	.hero-img{
+	
+		hr{
+			margin: 0 auto;
+			width: 70%;
+		}
+
+		&__text{
+			font-size: 2.2rem;
+		}
+	}
+
+
 }
 
-// bigger main img
+// bigger main img; 992
+
 @media (min-width: 992px) {
 	.burger-btn {
 		top: 50px;
@@ -439,6 +518,7 @@ body {
 	}
 
 	.header {
+		height: 90vh;
 		background-image: $blue-gradient, url('../img/palm-3172367_1920.jpg');
 		&__heading {
 			margin-bottom: 1rem;
@@ -472,36 +552,18 @@ body {
 			font-size: 2.2rem;
 		}
 	}
-}
 
-@media(min-width: 576px){
-	.dreams{
-		&__box{
-			flex-direction: row;
-			justify-content: space-between;
+	.hero-img{
+		padding: 20rem 2em;
+		background-image: $blue-gradient, url('../img/hd-wallpaper-3021072_1920tahiti.jpg');
+		&__title{
+			font-size: 7.2rem;
+		}
 
-			&-text{
-				width: 55%;
-
-				&--right{
-					text-align: right;
-				}
-			}
-
-			&-img{
-				width: 40%;
-
-				&--right{
-					order: 1;
-				}
-			}
-			
+		hr{
+			width: 60%;
+			max-width: 900px;
+		}
 	}
-
-	&__img{
-		margin-bottom: 0;
-		max-height: 300px;
-	}
-
 }
-}
+
