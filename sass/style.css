@@ -527,6 +527,39 @@ body {
   background-color: #164dcc;
 }
 
+@media (max-width: 767px) {
+  .reviews.section-padding {
+    padding: 6em 0;
+  }
+}
+.reviews__box {
+  position: relative;
+  padding: 2em;
+  margin: 2em;
+  border-radius: 8px;
+  -webkit-box-shadow: 3px 3px 10px #2e2e2e;
+          box-shadow: 3px 3px 10px #2e2e2e;
+}
+.reviews__box-img {
+  position: absolute;
+  top: 8%;
+  left: 75%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+.reviews__box-img img {
+  width: 80px;
+  height: 80px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+}
+.reviews__box-quote {
+  margin-bottom: 1em;
+  font-size: 3rem;
+  color: #1755e7;
+}
+
 @media (min-width: 576px) {
   .dreams__box {
     -webkit-box-orient: horizontal;
