@@ -614,6 +614,10 @@ body {
   background-color: #164dcc;
 }
 
+.footer {
+  background-color: #2e2e2e;
+}
+
 @media (min-width: 576px) {
   .dreams__box {
     -webkit-box-orient: horizontal;

@@ -139,6 +139,8 @@ $light-blue-gradient-solid: radial-gradient(
 	rgb(0, 212, 255) 100%
 );
 
+// CSS
+
 *,
 *::before,
 *::after {
@@ -385,7 +387,7 @@ body {
 
 // MAIN
 
-// dreams section
+// DREAMS
 
 .dreams {
 	&__box {
@@ -690,6 +692,12 @@ body {
 			background-color: $secondary-color;
 		}
 	}
+}
+
+// FOOTER
+
+.footer{
+	background-color: $dark;
 }
 
 // MEDIA QUERIES
