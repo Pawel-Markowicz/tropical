@@ -457,7 +457,7 @@ body {
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-  bottom: 0em;
+  bottom: 1em;
   padding: 1em;
   width: 80%;
   background-color: #00ffaa;
@@ -501,7 +501,6 @@ body {
 .offers__option-info {
   padding: 2em;
   background-color: .offers__option-info pure-white;
-  z-index: 1110;
 }
 .offers__option-heading {
   margin-bottom: 0.5em;

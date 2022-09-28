@@ -520,7 +520,7 @@ body {
 
 			&-btn {
 				@include islandsCardStyles;
-				bottom: 0em;
+				bottom: 1em;
 				padding: 1em;
 				width: 80%;
 				background-color: $green-color;
@@ -542,6 +542,7 @@ body {
 	position: relative;
 	@include heroImages('../img/maldives-3220702_640aaa.jpg');
 	overflow: hidden;
+	
 
 	.section-heading{
 		color: $pure-white;
@@ -566,7 +567,7 @@ body {
 		&-info{
 			padding: 2em;
 			background-color: &pure-white;
-			z-index: 1110;
+			
 		}
 
 		&-heading{
@@ -638,6 +639,8 @@ body {
 		color: $main-color;
 	}
 }
+
+
 
 
 
