@@ -1,4 +1,3 @@
-
 // MIXINS
 
 @mixin burger {
@@ -10,11 +9,25 @@
 	transition: width 0.3s;
 }
 
-@mixin heroImages ($bgImg){
+@mixin heroImages($bgImg) {
 	background-image: $blue-gradient, url($bgImg);
 	background-size: cover;
 	background-position: center;
 	background-attachment: fixed;
+}
+
+@mixin islandsCardStyles {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+@mixin contactForm {
+	margin-bottom: 2em;
+	padding: 0.6em 1.2em;
+	border: none;
+	border-radius: 8px;
+	font-size: 1.6rem;
 }
 
 // FONTS
@@ -90,7 +103,6 @@ $extraBold: 'open_sansextrabold_italic';
 	font-display: swap;
 }
 
-
 // COLORS
 
 $main-color: #1755e7;
@@ -101,11 +113,33 @@ $dark: #2e2e2e;
 $green-color: #00ffaa;
 $green-color-hover: #0fe29c;
 
-$light-blue-gradient: linear-gradient(45deg, rgba(8, 206, 255, 0.75), rgba(8, 24, 255, 0.75));
-$blue-gradient: linear-gradient(45deg, rgba(20, 105, 241, 0.75), rgba(42, 10, 184, 0.75));
-$purple-gradient: linear-gradient(45deg, rgba(190, 10, 214, 0.75), rgba(68, 0, 255, 0.75));
-$blue-gradient-solid: linear-gradient(45deg, rgb(20, 105, 241), rgb(42, 10, 184));
-$light-blue-gradient-solid: radial-gradient(circle at top right, rgb(0, 78, 255) 0%, rgb(0, 212, 255) 100%);
+$light-blue-gradient: linear-gradient(
+	45deg,
+	rgba(8, 206, 255, 0.75),
+	rgba(8, 24, 255, 0.75)
+);
+$blue-gradient: linear-gradient(
+	45deg,
+	rgba(20, 105, 241, 0.75),
+	rgba(42, 10, 184, 0.75)
+);
+$purple-gradient: linear-gradient(
+	45deg,
+	rgba(190, 10, 214, 0.75),
+	rgba(68, 0, 255, 0.75)
+);
+$blue-gradient-solid: linear-gradient(
+	45deg,
+	rgb(20, 105, 241),
+	rgb(42, 10, 184)
+);
+$light-blue-gradient-solid: radial-gradient(
+	circle at top right,
+	rgb(0, 78, 255) 0%,
+	rgb(0, 212, 255) 100%
+);
+
+// CSS
 
 *,
 *::before,
@@ -123,6 +157,89 @@ html {
 body {
 	font-family: $regular;
 	font-size: 1.6rem;
+}
+
+// animation
+
+@keyframes navItemsAnimation {
+	from {
+		transform: translateX(200%);
+	}
+
+	to {
+		transform: translateX(0);
+	}
+}
+
+.nav-items-animation {
+	animation: navItemsAnimation 1s;
+}
+
+// components
+
+.wrapper {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1200px;
+}
+
+.white-block {
+	position: absolute;
+	height: 40px;
+	width: 60%;
+	background-color: $pure-white;
+	&-left {
+		bottom: 0;
+		left: -50px;
+		transform: skew(45deg);
+	}
+
+	&-right {
+		top: 0;
+		right: -50px;
+		transform: skew(45deg);
+	}
+}
+
+.btn-special-animation {
+	position: relative;
+	transition: background-color 0.3s;
+	overflow: hidden;
+	z-index: 0;
+
+	&::before {
+		display: block;
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		transform: scaleX(0);
+		transform-origin: right;
+		transition: transform 0.3s;
+		z-index: -1;
+	}
+
+	&:hover::before {
+		transform: scaleX(1);
+		transform-origin: left;
+	}
+}
+
+.section-heading {
+	position: relative;
+	margin-bottom: 2em;
+	font-size: 3rem;
+	font-weight: 300;
+	text-transform: uppercase;
+	text-align: center;
+	color: $main-color;
+	letter-spacing: 2px;
+}
+
+.section-padding {
+	padding: 6em 2em;
 }
 
 // NAVIGATION
@@ -187,11 +304,11 @@ body {
 	height: 100vh;
 	width: 100%;
 	transform: translateX(100%);
-	transition: .9s cubic-bezier(.99,0,.01,.94);
+	transition: 0.9s cubic-bezier(0.99, 0, 0.01, 0.94);
 	background-image: $blue-gradient-solid;
 	z-index: 100;
 
-	&--active{
+	&--active {
 		transform: translateX(0);
 	}
 
@@ -204,7 +321,7 @@ body {
 		color: $pure-white;
 		text-decoration: none;
 
-		&::before{
+		&::before {
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -213,10 +330,10 @@ body {
 			height: 0;
 			transform: scaleY(0);
 			background-color: $pure-white;
-			transition: transform .3s;
+			transition: transform 0.3s;
 		}
 
-		&:hover::before{
+		&:hover::before {
 			transform: scaleY(1);
 			height: 100%;
 		}
@@ -268,37 +385,34 @@ body {
 	}
 }
 
-
-
 // MAIN
 
-// dreams section
+// DREAMS
 
-.dreams{
-	&__box{
+.dreams {
+	&__box {
 		display: flex;
 		flex-direction: column;
 		margin: 2em 0;
-
 	}
 
-	&__img{
+	&__img {
 		width: 100%;
 		margin-bottom: 1em;
 	}
 
-	&__title{
+	&__title {
 		margin-bottom: 0.5em;
 	}
 
-	&__text{
+	&__text {
 		font-size: 1.4rem;
 	}
 }
 
 // HERO IMG
 
-.hero-img{
+.hero-img {
 	position: relative;
 	padding: 10em 2em;
 	@include heroImages('../img/hd-wallpaper-3021072_640tahiti.jpg');
@@ -306,231 +420,384 @@ body {
 	color: $pure-white;
 	overflow: hidden;
 
-	&__title{
+	&__title {
 		font-family: $logo;
 		margin-bottom: 0.5em;
 		font-size: 4.8rem;
 	}
 
-	&__text{
+	&__text {
 		padding: 1em 0;
 	}
-
 }
 
 //ISLANDS
 
-.islands{
-	&__card{
+.islands {
+	&__card {
 		position: relative;
 		margin: 1em 0;
 		height: 450px;
 		color: $pure-white;
 		text-align: center;
-		 
 
-		&:hover{
-			.islands__card-img{
+		&:hover {
+			.islands__card-img {
 				transform: rotateY(-180deg);
 				opacity: 0;
 			}
-			.islands__card-info{
+			.islands__card-info {
 				transform: rotateY(0);
 				opacity: 1;
 			}
 		}
 
-		&-img{
+		&-img {
 			padding: 2em;
 			height: 100%;
 			border-radius: 8px;
 			background-size: cover;
 			transition: transform 1s, opacity 1s ease;
-			&--first{
-				background-image: $light-blue-gradient, url('../img/boat-166738_640.jpg');
+			&--first {
+				background-image: $light-blue-gradient,
+					url('../img/boat-166738_640.jpg');
 			}
 
-			&--second{
+			&--second {
 				background-image: $blue-gradient, url('../img/boat-166738_640.jpg');
 			}
 
-			&--third{
+			&--third {
 				background-image: $purple-gradient, url('../img/boat-166738_640.jpg');
 			}
 
-			&-title{
+			&-title {
 				font-family: $logo, cursive;
 				font-size: 2.8rem;
 			}
 
-			&-info{
+			&-info {
 				position: absolute;
 				bottom: 30px;
 				right: 30px;
 				font-size: 1.8rem;
-				i{
+				i {
 					margin-right: 0.3rem;
 				}
 			
+			}
 		}
-		}
+
+		// druga strona karty
+		&-info {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			background-image: $light-blue-gradient-solid;
+			border-radius: 8px;
+			opacity: 0;
+			transform: rotateY(180deg);
+			transition: transform 1s, opacity 1s;
+
+			&-title {
+				@include islandsCardStyles;
+				top: 1.2em;
+				font-family: $logo;
+				font-size: 2.8rem;
+			}
+
+			&-list {
+				margin: 0 auto;
+				width: 70%;
+				list-style: none;
+
+				&-item {
+					padding: 1em;
+					font-size: 1.4rem;
+					border-bottom: 1px solid $light-white;
+
+					&:last-child {
+						border-bottom: none;
+					}
+				}
+			}
+
+			&-btn {
+				@include islandsCardStyles;
+				bottom: 1em;
+				padding: 1em;
+				width: 80%;
+				background-color: $green-color;
+				border: none;
+				border-radius: 8px;
+				cursor: pointer;
+
+				&::before {
+					background-color: $green-color-hover;
+				}
+			}
 		}
 	}
+}
 
+// OFFERS
 
+.offers {
+	position: relative;
+	@include heroImages('../img/maldives-3220702_640aaa.jpg');
+	overflow: hidden;
 
+	.section-heading {
+		color: $pure-white;
+	}
 
+	&__option {
+		margin: 1em 0;
+		box-shadow: 5px 5px 10px rgba(46, 46, 46, 0.18);
+		background-color: $pure-white;
+		overflow: hidden;
+
+		&-img {
+			width: 100%;
+			transition: transform 0.3s ease;
+
+			&:hover {
+				transform: scale(1.05);
+			}
+		}
+		}
 	
 
 
 
-// animation
 
-@keyframes navItemsAnimation {
-	from{
-		transform: translateX(200%);
+		&-info {
+			padding: 2em;
+			background-color: &pure-white;
+		}
+
+		&-heading {
+			margin-bottom: 0.5em;
+			font-size: 2.4rem;
+			font-weight: 300;
+		}
+
+
+		&-text {
+			margin-bottom: 0.5em;
+			font-size: 1.3rem;
+			color: $dark;
+		}
+
+		&-btn {
+			margin-top: 1em;
+			padding: 0.8em;
+			width: 100%;
+			color: $pure-white;
+			background-color: $main-color;
+			border: none;
+			border-radius: 8px;
+			cursor: pointer;
+
+			&::before {
+				background-color: $secondary-color;
+			}
+		}
 	}
 
-	to{
-		transform: translateX(0);
+
+
+// REVIEWS
+
+@media (max-width: 767px) {
+	.reviews.section-padding {
+		padding: 6em 0;
 	}
 }
 
-.nav-items-animation{
-	animation: navItemsAnimation 1s;
+.reviews {
+	&__box {
+		position: relative;
+		padding: 2em;
+		margin: 2em;
+		border-radius: 8px;
+		box-shadow: 3px 3px 10px #2e2e2e;
+	}
+
+	&__box-img {
+		position: absolute;
+		top: 8%;
+		left: 75%;
+		transform: translate(-50%, -50%);
+
+		img {
+			width: 80px;
+			height: 80px;
+			object-fit: cover;
+			border-radius: 50%;
+		}
+	}
+
+	&__box-quote {
+		margin-bottom: 1em;
+		font-size: 3rem;
+		color: $main-color;
+	}
 }
 
-// components
+// CONTACT
 
-.wrapper{
-    margin: 0 auto;
-    width: 100%;
-    max-width: 1200px;
+.contact {
+	position: relative;
+	background-color: $light-white;
+	overflow: hidden;
+
+	.white-block-left {
+		background-color: $dark;
+	}
+
+	&__form,
+	&__form-top {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__form-label{
+		margin-bottom: 0.5em;
+		text-transform: uppercase;
+	}
+
+	&__form-input{
+		@include contactForm;
+	}
+	&__form-textarea{
+		@include contactForm;
+
+		max-width: 100%;
+		min-width: 100%;
+		width: 100%;
+		min-height: 150px;
+		
+	}
+
+	&__form-btn{
+		align-self: flex-end;
+		padding: 1em;
+		width: 100%;
+		max-width: 300px;
+		color: $pure-white;
+		border: none;
+		border-radius: 8px;
+		background-color: $main-color;
+		cursor: pointer;
+
+		&::before{
+			background-color: $secondary-color;
+		}
+	}
 }
 
-.white-block{
-    position: absolute;
-    height: 40px;
-    width: 60%;
-    background-color: $pure-white;
-    &-left{
-        bottom: 0;
-        left: -50px;
-        transform: skew(45deg);
-    }
+// FOOTER
 
-    &-right{
-        top: 0;
-        right: -50px;
-        transform: skew(45deg);
-    }
+.footer{
+	background-color: $dark;
 }
 
-.btn-special-animation{
-    position: relative;
-    transition: background-color .3s;
-    overflow: hidden;
-    z-index: 0;
-
-    &::before{
-        display: block;
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        transform: scaleX(0);
-        transform-origin: right;
-        transition: transform .3s;
-        z-index: -1;
-    }
-
-    &:hover::before{
-        transform: scaleX(1);
-        transform-origin: left;
-    }
-}
-
-.section-heading{
-    position: relative;
-    margin-bottom: 2em;
-    font-size: 3rem;
-    font-weight: 300;
-    text-transform: uppercase;
-    text-align: center;
-    color: $main-color;
-	letter-spacing: 2px;
- 
-}
-
-.section-padding{
-    padding: 6em 2em;
-}
-
-
-// MEDIA
-
-// heading 768
-
-@media(min-width: 768px) {
-    .section-heading{
-        font-size: 3.5rem;
-    }
-
-    .section-padding{
-        padding: 8em 2em;
-    }
-    
-}
-
-@media(min-width: 992px) {
-    .section-heading{
-        font-size: 4.8rem;
-    }
-
-    .section-padding{
-        padding: 10em 2em;
-    }
-    
-}
+// MEDIA QUERIES
 
 // 576
 
-@media(min-width: 576px){
-	.dreams{
-		&__box{
+@media (min-width: 576px) {
+	.dreams {
+		&__box {
 			flex-direction: row;
 			justify-content: space-between;
 
-			&-text{
+			&-text {
 				width: 55%;
 
-				&--right{
+				&--right {
 					text-align: right;
 				}
 			}
 
-			&-img{
+			&-img {
 				width: 40%;
 
-				&--right{
+				&--right {
 					order: 1;
 				}
 			}
-			
+		}
+
+		&__img {
+			margin-bottom: 0;
+			max-height: 300px;
+		}
 	}
 
-	&__img{
-		margin-bottom: 0;
-		max-height: 300px;
+	.offers {
+		&__option {
+			display: flex;
+			margin: 2em 0;
+			width: 100%;
+			&-img {
+				width: 50%;
+				height: auto;
+
+				&--right {
+					order: 1;
+				}
+			}
+
+			&-info {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+			}
+
+			&-heading {
+				margin-bottom: 0.5em;
+				font-size: 3.6rem;
+			}
+
+			&-btn {
+				padding: 1em;
+			}
+		}
+	}
+}
+
+// heading 768
+
+@media (min-width: 768px) {
+	.section-heading {
+		font-size: 3.5rem;
 	}
 
-}
+	.section-padding {
+		padding: 8em 2em;
+	}
 }
 
+// heading 992
 
-// white block, header; 768
+@media (min-width: 992px) {
+	.section-heading {
+		font-size: 4.8rem;
+	}
+
+	.section-padding {
+		padding: 10em 2em;
+	}
+}
+
+//  768
 
 @media (min-width: 768px) {
 	.white-block {
@@ -552,28 +819,38 @@ body {
 		}
 	}
 
-	.dreams{
-		&__text{
+	.dreams {
+		&__text {
 			font-size: 1.8rem;
 		}
 	}
 
-	.hero-img{
-	
-		hr{
+	.hero-img {
+		hr {
 			margin: 0 auto;
 			width: 70%;
 		}
 
-		&__text{
+		&__text {
 			font-size: 2.2rem;
 		}
 	}
 
+	.islands {
+		&__cards {
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+		}
 
+		&__card {
+			margin: 1em;
+			width: 45%;
+		}
+	}
 }
 
-// bigger main img; 992
+//  992
 
 @media (min-width: 992px) {
 	.burger-btn {
@@ -590,16 +867,16 @@ body {
 		}
 	}
 
-	.nav{
-		&__item{
+	.nav {
+		&__item {
 			font-size: 4.8rem;
 		}
 	}
 
-	.dreams{
-		&__box{
+	.dreams {
+		&__box {
 			margin: 5em 0;
-			&-text{
+			&-text {
 				display: flex;
 				flex-direction: column;
 				justify-content: flex-end;
@@ -607,27 +884,49 @@ body {
 			}
 		}
 
-		&__title{
+		&__title {
 			font-size: 3.6rem;
-
 		}
 
-		&__text{
+		&__text {
 			font-size: 2.2rem;
 		}
 	}
 
-	.hero-img{
+	.hero-img {
 		padding: 20rem 2em;
-		background-image: $blue-gradient, url('../img/hd-wallpaper-3021072_1920tahiti.jpg');
-		&__title{
+		background-image: $blue-gradient,
+			url('../img/hd-wallpaper-3021072_1920tahiti.jpg');
+		&__title {
 			font-size: 7.2rem;
 		}
 
-		hr{
+		hr {
 			width: 60%;
 			max-width: 900px;
 		}
 	}
+
+	.offers {
+		background-image: $blue-gradient, url('../img/maldives-3220702_1920aaa.jpg');
+
+		&__option {
+			&-img {
+				object-fit: cover;
+				height: 400px;
+			}
+
+			&-text {
+				font-size: 1.5rem;
+			}
+		}
+	}
 }
 
+@media (min-width: 1100px) {
+	.islands {
+		&__card {
+			width: 30%;
+		}
+	}
+}
