@@ -159,6 +159,8 @@ body {
 	font-size: 1.6rem;
 }
 
+
+
 // animation
 
 @keyframes navItemsAnimation {
@@ -338,6 +340,12 @@ body {
 			height: 100%;
 		}
 	}
+}
+
+.black-bars-color,
+.black-bars-color::after,
+.black-bars-color::before{
+	background-color: $dark;
 }
 
 // header
