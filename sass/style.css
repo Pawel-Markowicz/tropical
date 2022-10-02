@@ -426,35 +426,38 @@ body {
 .offers__option-img {
   width: 100%;
   transition: transform 0.3s ease;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: 10;
 }
 .offers__option-img:hover {
   transform: scale(1.05);
 }
-.offers-info {
+.offers__option-info {
   padding: 2em;
-  background-color: .offers-info pure-white;
+  background-color: .offers__option-info pure-white;
 }
-.offers-heading {
+.offers__option-info-heading {
   margin-bottom: 0.5em;
   font-size: 2.4rem;
   font-weight: 300;
 }
-.offers-text {
+.offers__option-info-text {
   margin-bottom: 0.5em;
   font-size: 1.3rem;
   color: #2e2e2e;
 }
-.offers-btn {
-  margin-top: 1em;
+.offers__option-info-btn {
+  margin: 1em;
   padding: 0.8em;
-  width: 100%;
+  width: 60%;
   color: #fff;
   background-color: #1755e7;
   border: none;
   border-radius: 8px;
   cursor: pointer;
 }
-.offers-btn::before {
+.offers__option-info-btn::before {
   background-color: #164dcc;
 }
 
@@ -539,7 +542,39 @@ body {
 }
 
 .footer {
+  color: #fff;
   background-color: #2e2e2e;
+}
+.footer .wrapper {
+  padding: 6em 2em 2em;
+}
+.footer__box {
+  font-size: 1.4rem;
+}
+.footer__box-title {
+  margin-bottom: 1em;
+  font-size: 3rem;
+  text-transform: uppercase;
+}
+.footer__box-social {
+  margin: 2em 0 1em;
+}
+.footer__box-link {
+  padding: 0 0.3em;
+  font-size: 3.6rem;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.footer__box-link:first-child {
+  padding-left: 0;
+}
+.footer__box-link:hover {
+  color: #eee;
+}
+.footer__bottom-text {
+  padding: 2em;
+  text-align: center;
 }
 
 @media (min-width: 576px) {
@@ -636,6 +671,33 @@ body {
   .islands__card {
     margin: 1em;
     width: 45%;
+  }
+  .footer__boxes {
+    display: flex;
+    justify-content: space-between;
+  }
+  .footer__box-desktop {
+    display: block;
+  }
+  .footer__box {
+    padding-left: 0.5em;
+    width: 25%;
+  }
+  .footer__box:first-child {
+    width: 50%;
+  }
+  .footer__box-title {
+    font-size: 2.4rem;
+  }
+  .footer__box-list {
+    list-style: none;
+  }
+  .footer__box-list-item {
+    margin-bottom: 1em;
+  }
+  .footer__box-list-item a {
+    color: #eee;
+    text-decoration: none;
   }
 }
 @media (min-width: 992px) {

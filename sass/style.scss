@@ -551,7 +551,6 @@ body {
 	position: relative;
 	@include heroImages('../img/maldives-3220702_640aaa.jpg');
 	overflow: hidden;
-
 	.section-heading {
 		color: $pure-white;
 	}
@@ -565,49 +564,54 @@ body {
 		&-img {
 			width: 100%;
 			transition: transform 0.3s ease;
-
+			object-fit: cover;
+			z-index: 10;
+			
 			&:hover {
 				transform: scale(1.05);
 			}
 		}
-		}
-	
-
-
 
 
 		&-info {
+
 			padding: 2em;
 			background-color: &pure-white;
-		}
 
-		&-heading {
-			margin-bottom: 0.5em;
-			font-size: 2.4rem;
-			font-weight: 300;
-		}
-
-
-		&-text {
-			margin-bottom: 0.5em;
-			font-size: 1.3rem;
-			color: $dark;
-		}
-
-		&-btn {
-			margin-top: 1em;
-			padding: 0.8em;
-			width: 100%;
-			color: $pure-white;
-			background-color: $main-color;
-			border: none;
-			border-radius: 8px;
-			cursor: pointer;
-
-			&::before {
-				background-color: $secondary-color;
+			&-heading {
+				margin-bottom: 0.5em;
+				font-size: 2.4rem;
+				font-weight: 300;
+			}
+	
+	
+			&-text {
+				margin-bottom: 0.5em;
+				font-size: 1.3rem;
+				color: $dark;
+			}
+	
+			&-btn {
+	
+				margin: 1em;
+				padding: 0.8em;
+				width: 60%;
+				color: $pure-white;
+				background-color: $main-color;
+				border: none;
+				border-radius: 8px;
+				cursor: pointer;
+	
+				&::before {
+					background-color: $secondary-color;
+				}
 			}
 		}
+
+		
+		}
+	
+		
 	}
 
 
@@ -705,7 +709,51 @@ body {
 // FOOTER
 
 .footer{
+	color: $pure-white;
 	background-color: $dark;
+
+	.wrapper{
+		padding: 6em 2em 2em;
+	}
+
+	&__box{
+		font-size: 1.4rem;
+	}
+
+	// &__box-desktop{
+	// 	display: none;
+	// }
+
+	&__box-title{
+		margin-bottom: 1em;
+		font-size: 3rem;
+		text-transform: uppercase;
+	}
+
+	&__box-social{
+		margin: 2em 0 1em;
+	}
+
+	&__box-link{
+		padding: 0 0.3em;
+		font-size: 3.6rem;
+		color: $pure-white;
+		text-decoration: none;
+		transition: color .3s;
+
+		&:first-child{
+			padding-left: 0;
+		}
+
+		&:hover{
+			color: $light-white;
+		}
+	}
+
+	&__bottom-text{
+		padding: 2em;
+		text-align: center;
+	}
 }
 
 // MEDIA QUERIES
@@ -847,6 +895,45 @@ body {
 			margin: 1em;
 			width: 45%;
 		}
+	}
+
+	.footer{
+		&__boxes{
+			display: flex;
+			justify-content: space-between;
+		}
+
+		&__box-desktop{
+			display: block;
+		}
+
+		&__box{
+			padding-left: .5em;
+			width: 25%;
+
+			&:first-child{
+				width: 50%;
+			}
+		}
+
+		&__box-title{
+			font-size: 2.4rem;
+		}
+
+		&__box-list{
+			list-style: none;
+		}
+
+		&__box-list-item{
+			margin-bottom: 1em;
+
+			a{
+				color: $light-white;
+				text-decoration: none;
+			}
+		}
+
+		
 	}
 }
 
