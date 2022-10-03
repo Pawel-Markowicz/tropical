@@ -500,7 +500,7 @@ body {
 }
 .offers__option-info {
   padding: 2em;
-  background-color: .offers__option-info pure-white;
+  background-color: pure-white;
 }
 .offers__option-heading {
   margin-bottom: 0.5em;
@@ -616,6 +616,21 @@ body {
 
 .footer {
   background-color: #2e2e2e;
+  color: #fff;
+}
+.footer .wrapper {
+  padding: 6em 2em 2em;
+}
+.footer__box {
+  font-size: 1.4rem;
+}
+.footer__box-desktop {
+  display: none;
+}
+.footer__box-title {
+  margin-bottom: 1em;
+  font-size: 3rem;
+  text-transform: uppercase;
 }
 
 @media (min-width: 576px) {
