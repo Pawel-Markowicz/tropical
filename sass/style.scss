@@ -161,7 +161,6 @@ body {
 
 // ANIMATION
 
-
 // animation
 
 @keyframes navItemsAnimation {
@@ -345,7 +344,7 @@ body {
 
 .black-bars-color,
 .black-bars-color::after,
-.black-bars-color::before{
+.black-bars-color::before {
 	background-color: $dark;
 }
 
@@ -493,7 +492,6 @@ body {
 				i {
 					margin-right: 0.3rem;
 				}
-			
 			}
 		}
 
@@ -575,15 +573,13 @@ body {
 			transition: transform 0.3s ease;
 			object-fit: cover;
 			z-index: 10;
-			
+
 			&:hover {
 				transform: scale(1.05);
 			}
 		}
 
-
 		&-info {
-
 			padding: 2em;
 			background-color: &pure-white;
 
@@ -592,16 +588,14 @@ body {
 				font-size: 2.4rem;
 				font-weight: 300;
 			}
-	
-	
+
 			&-text {
 				margin-bottom: 0.5em;
 				font-size: 1.3rem;
 				color: $dark;
 			}
-	
+
 			&-btn {
-	
 				margin: 1em;
 				padding: 0.8em;
 				width: 60%;
@@ -610,20 +604,14 @@ body {
 				border: none;
 				border-radius: 8px;
 				cursor: pointer;
-	
+
 				&::before {
 					background-color: $secondary-color;
 				}
 			}
 		}
-
-		
-		}
-	
-		
 	}
-
-
+}
 
 // REVIEWS
 
@@ -680,25 +668,24 @@ body {
 		flex-direction: column;
 	}
 
-	&__form-label{
+	&__form-label {
 		margin-bottom: 0.5em;
 		text-transform: uppercase;
 	}
 
-	&__form-input{
+	&__form-input {
 		@include contactForm;
 	}
-	&__form-textarea{
+	&__form-textarea {
 		@include contactForm;
 
 		max-width: 100%;
 		min-width: 100%;
 		width: 100%;
 		min-height: 150px;
-		
 	}
 
-	&__form-btn{
+	&__form-btn {
 		align-self: flex-end;
 		padding: 1em;
 		width: 100%;
@@ -709,7 +696,7 @@ body {
 		background-color: $main-color;
 		cursor: pointer;
 
-		&::before{
+		&::before {
 			background-color: $secondary-color;
 		}
 	}
@@ -717,52 +704,50 @@ body {
 
 // FOOTER
 
-.footer{
+.footer {
 	color: $pure-white;
 	background-color: $dark;
 	color: $pure-white;
 
-	.wrapper{
+	.wrapper {
 		padding: 6em 2em 2em;
 	}
 
-	&__box{
+	&__box {
 		font-size: 1.4rem;
 	}
 
-	&__box-desktop{
+	&__box-desktop {
 		display: none;
 	}
 
-
-	&__box-title{
+	&__box-title {
 		font-size: 3rem;
 		text-transform: uppercase;
 	}
 
-	&__box-social{
+	&__box-social {
 		margin: 2em 0 1em;
 	}
 
-	&__box-link{
+	&__box-link {
 		padding: 0 0.3em;
 		font-size: 3.6rem;
-		transition: color .3s;
+		transition: color 0.3s;
 
-		&:first-child{
+		&:first-child {
 			padding-left: 0;
 		}
 
-		&:hover{
+		&:hover {
 			color: $light-white;
 		}
 	}
 
-	&__bottom-text{
+	&__bottom-text {
 		padding: 2em;
 		text-align: center;
 	}
-
 }
 
 // MEDIA QUERIES
@@ -771,31 +756,26 @@ body {
 
 @media (min-width: 576px) {
 	.dreams {
-			flex-direction: row;
-			justify-content: space-between;
+		flex-direction: row;
+		justify-content: space-between;
 
-			&-text {
-				width: 55%;
+		&-text {
+			width: 55%;
 
-				&--right {
-					text-align: right;
-				}
-			}
-
-			&-img {
-				width: 40%;
-
-				&--right {
-					order: 1;
-				}
+			&--right {
+				text-align: right;
 			}
 		}
 
-		&__img {
+		&-img {
+			width: 40%;
 			margin-bottom: 0;
-			max-height: 300px;
+
+			&--right {
+				order: 1;
+			}
 		}
-	
+	}
 
 	.offers {
 		&__option {
@@ -905,43 +885,41 @@ body {
 		}
 	}
 
-	.footer{
-		&__boxes{
+	.footer {
+		&__boxes {
 			display: flex;
 			justify-content: space-between;
 		}
 
-		&__box-desktop{
+		&__box-desktop {
 			display: block;
 		}
 
-		&__box{
-			padding-left: .5em;
+		&__box {
+			padding-left: 0.5em;
 			width: 25%;
 
-			&:first-child{
+			&:first-child {
 				width: 50%;
 			}
 		}
 
-		&__box-title{
+		&__box-title {
 			font-size: 2.4rem;
 		}
 
-		&__box-list{
+		&__box-list {
 			list-style: none;
 		}
 
-		&__box-list-item{
+		&__box-list-item {
 			margin-bottom: 1em;
 
-			a{
+			a {
 				color: $light-white;
 				text-decoration: none;
 			}
 		}
-
-		
 	}
 }
 
@@ -969,15 +947,37 @@ body {
 	}
 
 	.dreams {
-		&__box {
+	
+		&__box,
+		&__box--right {
+			display: flex;
+			flex-direction: row;
 			margin: 5em 0;
+			
 			&-text {
 				display: flex;
 				flex-direction: column;
 				justify-content: flex-end;
+				width: 50%;
 				margin-bottom: 2.5rem;
+				padding: 2em;
 			}
 		}
+
+		&__box-text--right{
+
+			text-align: right;
+		}
+
+		&__box--right {
+			flex-direction: row-reverse;
+		}
+
+		&__box-text--right{
+			padding: 2em;
+			width: 50%;
+		}
+	
 
 		&__title {
 			font-size: 3.6rem;
@@ -985,8 +985,14 @@ body {
 
 		&__text {
 			font-size: 2.2rem;
+			
 		}
+
+		&__img {
+			height: 300px;
+			
 	}
+
 
 	.hero-img {
 		padding: 20rem 2em;
@@ -1016,6 +1022,8 @@ body {
 			}
 		}
 	}
+}
+
 }
 
 @media (min-width: 1100px) {
